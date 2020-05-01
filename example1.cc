@@ -41,7 +41,7 @@ int contents(string matrixDisplay[MATRIX_HEIGHT+1][MATRIX_WIDTH+1])
    * Create the matrix.  Need to manually cast (const char**) to (char **)
   */
   myMatrix = newCDKMatrix(cdkscreen, CENTER, CENTER, MATRIX_HEIGHT, MATRIX_WIDTH, MATRIX_HEIGHT, MATRIX_WIDTH,
-			  MATRIX_NAME_STRING, (char **) columnTitles, (char **) rowTitles, boxWidths,
+			  MATRIX_NAME_STRING, (char **) rowTitles, (char **) columnTitles, boxWidths,
 				     boxTypes, 1, 1, ' ', ROW, true, true, false);
 
   if (myMatrix ==NULL){

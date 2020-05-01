@@ -1,8 +1,11 @@
 #
-# UTD CS3377 CDK Example
-# Dr. Perkins
-# stephen.perkins@utdallas.edu
-#
+#Filename: Makefile
+#Date:     04/29/20
+#Author:   Mansi Pedireddy
+#Email:    mrp170002@utdallas.edu
+#Version:  1.0
+#Copyright:2020, All Rights Reserved
+#Description: Makefile that complied and creates dependanceies
 
 CXX = g++
 CXXFLAGS =
@@ -28,3 +31,15 @@ clean:
 $(EXECFILE): $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LDFLAGS) $(LDLIBS)
 
+backup:
+	@make clean
+	@mkdir -p ~/backups; chmod 700 ~/backups
+	@$(eval CURDIRNAME := $(shell basename "`pwd`"))
+	@$(eval MKBKUPNAME := ~/backups/$(PROJECTNAME)-$(shell date +'%Y.%m.%d-%H:%M:%S').tar.gz)
+	@echo
+	@echo Writing Backup file to: $(MKBKUPNAME)
+	@echo
+	@-tar zcfv $(MKBKUPNAME) ../$(CURDIRNAME) 
+	@chmod 600 $(MKBKUPNAME)
+	@echo
+	@echo Done!
